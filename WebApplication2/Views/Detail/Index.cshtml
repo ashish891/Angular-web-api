@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<style>
+    table, tr, td, th {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
+<h2>Welcome to Sibeesh Passion's Email List</h2>
+<body ng-app="myApp">
+    <div id="tblSubs" ng-controller="myCtrl">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Email ID</th>
+                <th>Subscribed Date</th>
+            </tr>
+            <tbody data-ng-repeat="sub in user">
+                <tr>
+                    <td>{{sub.Name}}</td>
+                    <td>{{sub.Phone}}</td>
+                    <td>{{sub.Address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+@section scripts{
+    <script src="~/Scripts/angular.js"></script>
+
+    <script src="~/Scripts/manual.js"></script>}
+
+@*<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+
+<script src="~/Scripts/manual.js"></script>*@
+@*<script src="~/Scripts/app.js"></script>*@

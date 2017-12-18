@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<style>
+    table, tr, td, th{
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-left:70px;
+        margin-top:5px;
+    }
+
+    .d{
+        padding: 10px;
+        margin-left:70px;
+        margin-top:5px;
+    }
+
+</style>
+
+<body ng-app="myApp">
+    <div id="tblSubs" ng-controller="myCtrl">
+
+        <form class="form-inline" style="margin-top:40px;margin-bottom:10px;margin-left:70px; padding: 10px">
+         
+            <div class="form-group">
+                <input type="Name" class="form-control" id="Name" placeholder="Enter Name" name="Name" ng-model="user1.Name">
+            </div>
+            <div class="form-group">
+                <input type="Phone" class="form-control" id="phone" placeholder="Enter phone" name="phone" ng-model="user1.Phone">
+            </div>
+            <div class="form-group">
+                <input type="Address" class="form-control" id="Address" placeholder="Enter Address" name="Address" ng-model="user1.Address">
+            </div>
+            <div class="form-group">
+                <input type="Spec" class="form-control" id="Spec" placeholder="Enter Specialization" name="Spec" ng-model="user1.Spec">
+            </div>
+
+
+            <button ng-click="InsertDet(user1)">
+                Add Data
+            </button>
+
+           
+        </form>
+
+
+
+        <div class="d">
+           
+            <form>
+                <label for="name">Search</label>
+                <input class="form-control" ng-model="search.$" name="Name" type="text" value="" placeholder="Search By Name" />
+            </form>
+        </div>
+        <table>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Specification</th>
+                <th>Delete</th>
+            </tr>
+            <tbody data-ng-repeat="sub in user | filter:search">
+                <tr>
+                    <td>{{sub.Name}}</td>
+                    <td>{{sub.Phone}}</td>
+                    <td>{{sub.Address}}</td>
+                    <td>{{sub.Spec}}</td>
+                    <td><button class="editbtn" ng-click="somthng(sub.Id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+     
+    </div>
+
+
+</body>
+
+@section scripts{
+    <script src="~/Scripts/angular.js"></script>
+
+    <script src="~/Scripts/manual.js"></script>}
+
